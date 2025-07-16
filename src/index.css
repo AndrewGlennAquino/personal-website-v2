@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+body {}
+
+#root {}
+
+@theme {}
+
+@layer base {}
+
+@layer components {}
