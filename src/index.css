@@ -1,10 +1,23 @@
 @import "tailwindcss";
 
-body {}
+@font-face {
+  font-family: Roboto;
+  src: url(./assets/fonts/Roboto.ttf);
+}
+
+body {
+  @apply bg-eerie text-smoke;
+}
 
 #root {}
 
-@theme {}
+@theme {
+  --color-smoke: #f5f5f5;
+  --color-eerie: #1a1a1a;
+  --color-indigo: #6320ee;
+
+  --font-roboto: Roboto;
+}
 
 @layer base {}
 
