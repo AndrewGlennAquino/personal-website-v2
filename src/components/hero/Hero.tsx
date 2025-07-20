@@ -14,6 +14,7 @@ const Hero = () => {
 
       {/* Hero container */}
       <div className="container mp-default">
+        <Sun />
 
         {/* Hero text container */}
         <div className="flex flex-col justify-center items-center">
