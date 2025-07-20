@@ -72,7 +72,7 @@ const Header = () => {
   };
 
   return (
-    <header className="px-4 top-0 left-0 right-0">
+    <header className="px-4 fixed top-0 left-0 right-0">
       {/* Header bar container */}
       <div className="container mp-default w-full max-w-160 h-12 rounded-full flex justify-between items-center relative">
         {/* Temporary logo */}
