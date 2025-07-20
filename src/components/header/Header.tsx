@@ -83,7 +83,7 @@ const Header = () => {
 
         {/* Dropdown menu container that animates for mobile devices */}
         <motion.div
-          className="bg-smoke/5 backdrop-blur-xs w-full h-full rounded-3xl absolute inset-0"
+          className="bg-eerie/10 backdrop-blur-md w-full h-full rounded-3xl absolute inset-0"
           initial="initial"
           animate={clicked ? "animateExpand" : undefined}
           variants={dropdownVariants}
@@ -144,7 +144,7 @@ const Header = () => {
           {/* Resume tablet link */}
           <motion.a
             href="#"
-            className="button-gradient font-bold text-smoke px-3 py-1 rounded-full"
+            className="button-gradient font-bold px-3 py-1 rounded-full"
             initial="initial"
             whileHover="animateHover"
             variants={tabletLinkVariants}
