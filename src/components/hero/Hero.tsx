@@ -13,7 +13,8 @@ const Hero = () => {
       <div className="bg-gradient-to-b from-indigo/25 via-indigo/15 to-eerie bg-center bg-cover bg-no-repeat h-screen absolute inset-0 -z-10" />
 
       {/* Hero container */}
-      <div className="container mp-default">
+      <div className="container w-full h-full mp-default">
+        {/* Animated 3D sun component */}
         <Sun />
 
         {/* Hero text container */}
