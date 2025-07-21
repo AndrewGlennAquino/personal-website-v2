@@ -10,11 +10,11 @@ const Hero = () => {
       className="h-screen"
     >
       {/* Hero background */}
-      <div className="bg-gradient-to-b from-indigo/25 via-indigo/15 to-eerie bg-center bg-cover bg-no-repeat h-screen absolute inset-0 -z-10" />
+      <div className="bg-gradient-to-b from-indigo/21 via-indigo/13 to-smoke h-screen absolute inset-0 -z-10" />
 
       {/* Hero container */}
-      <div className="container w-full h-full mp-default">
-        {/* Animated 3D sun component */}
+      <div className="container h-full mp-default flex flex-col justify-center items-center gap-16">
+        {/* Animated sun */}
         <Sun />
 
         {/* Hero text container */}
