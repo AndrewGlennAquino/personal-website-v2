@@ -1,31 +1,78 @@
 import { Canvas } from "@react-three/fiber";
 
 /**
+ * Sun ray that takes position, rotation, and color as props
+ * @param props position, rotation, color
+ */
+const Ray = ({ position, rotation, color }) => {
+  return (
+    <group position={position} rotation={rotation}>
+      {/* Middle ray */}
+      <group>
+        <mesh position={[0, 1, 0]}>
+          <cylinderGeometry args={[0.15, 0.05, 0.75]} />
+          <meshBasicMaterial color={color} />
+        </mesh>
+
+        <mesh position={[0, 1.5, 0]}>
+          <coneGeometry args={[0.15, 0.25]} />
+          <meshBasicMaterial color={color} />
+        </mesh>
+      </group>
+
+      {/* Left ray */}
+      <group>
+        <mesh position={[-0.16, 0.92, 0]} rotation={[0, 0, 0.15]}>
+          <cylinderGeometry args={[0.05, 0.025, 0.65]} />
+          <meshBasicMaterial color={color} />
+        </mesh>
+
+        <mesh position={[-0.21, 1.25, 0]} rotation={[0, 0, 1.75]}>
+          <coneGeometry args={[0.09, 0.09]} />
+          <meshBasicMaterial color={color} />
+        </mesh>
+      </group>
+
+      {/* Right ray */}
+      <group>
+        <mesh position={[0.16, 0.92, 0]} rotation={[0, 0, -0.15]}>
+          <cylinderGeometry args={[0.05, 0.025, 0.65]} />
+          <meshBasicMaterial color={color} />
+        </mesh>
+
+        <mesh position={[0.21, 1.25, 0]} rotation={[0, 0, -1.75]}>
+          <coneGeometry args={[0.09, 0.09]} />
+          <meshBasicMaterial color={color} />
+        </mesh>
+      </group>
+    </group>
+  );
+};
+
+/**
  * Animated wireframe sun component for hero
  */
 const Sun = () => {
   return (
-    <div>
-      <Canvas camera={{ position: [0, 0, 10] }}>
-        <group position={[0, -4, 0]}>
-          {/* Wireframe sphere */}
-          <mesh>
-            <sphereGeometry args={[2, 8, 8]} />
-            <meshBasicMaterial color="#f5f5f5" wireframe />
+    <div className="w-full h-full">
+      <Canvas camera={{ position: [0, 0, 3] }}>
+        {/* Wireframe sphere and rays group */}
+        <group scale={[0.7, 0.7, 0.7]}>
+          {/* Wireframe sphere mesh */}
+          <mesh scale={[1.15, 1.15, 1.15]}>
+            <sphereGeometry args={[0.5, 8, 8]} />
+            <meshBasicMaterial color="#6320ee" wireframe />
           </mesh>
 
-          {/* Top ray */}
-          <group position={[0, 6.5, 0]}>
-            <mesh position={[0, -3, 0]}>
-              <cylinderGeometry args={[0.75, 0.25, 3, 8, 8]} />
-              <meshBasicMaterial color="#f5f5f5" />
-            </mesh>
-
-            <mesh position={[0, -1, 0]}>
-              <coneGeometry args={[0.75, 1, 8, 8]} />
-              <meshBasicMaterial color="#f5f5f5" />
-            </mesh>
-          </group>
+          {/* Sun rays */}
+          <Ray color="#6320ee" />
+          <Ray position={[0, 0, 0]} rotation={[0, 0, -0.85]} color="#6320ee" />
+          <Ray position={[0, 0, 0]} rotation={[0, 0, -1.55]} color="#6320ee" />
+          <Ray position={[0, 0, 0]} rotation={[0, 0, -2.35]} color="#6320ee" />
+          <Ray position={[0, 0, 0]} rotation={[0, 0, -3.15]} color="#6320ee" />
+          <Ray position={[0, 0, 0]} rotation={[0, 0, -3.95]} color="#6320ee" />
+          <Ray position={[0, 0, 0]} rotation={[0, 0, -4.75]} color="#6320ee" />
+          <Ray position={[0, 0, 0]} rotation={[0, 0, -5.55]} color="#6320ee" />
         </group>
       </Canvas>
     </div>
