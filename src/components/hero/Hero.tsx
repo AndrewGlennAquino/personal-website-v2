@@ -1,56 +1,55 @@
-import { motion, type Variants } from "motion/react";
+import { useState, useEffect } from "react";
+import { useAnimate, stagger } from "motion/react";
 import Sun from "../../assets/three/Sun.jsx";
 
 /**
- * Hero component that contains animated sun, name, and title
+ * Hero component that contains animated sun, greetings, name, and title
  */
 const Hero = () => {
-  // Animation variants that staggers fade in animation for children
-  const fadeInContainerVariants: Variants = {
-    animateTypeWritter: {
-      transition: { delayChildren: 0.25, staggerChildren: 0.25 },
-    },
-  };
+  // Hold in state when sun animation begins
+  const [animateSun, setAnimateSun] = useState(false);
 
-  // Animation varaints to fade in content
-  const fadeInVariants: Variants = {
-    initial: { y: -5, opacity: 0 },
-    animateTypeWritter: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.75,
-        ease: "easeOut",
-      },
-    },
-  };
+  // Motion hook that control the sequence of animation triggers
+  const [scope, animate] = useAnimate();
+
+  // Use effect to play animations in sequence once on mount, then animate sun
+  useEffect(() => {
+    const sequence = async () => {
+      await animate([
+        [
+          "span",
+          { y: [-15, 0], opacity: [0, 1] },
+          { delay: stagger(0.25, { startDelay: 0.5 }), duration: 0.75, ease: "easeOut" },
+        ],
+      ]);
+
+      setAnimateSun(true);
+    };
+
+    sequence();
+  }, []);
 
   return (
     <section aria-label="Hero">
       {/* Hero container */}
       <div className="container h-screen max-h-180 mp-default mt-0 pt-12 flex flex-col items-center gap-4">
         {/* Animated sun */}
-        <Sun animate={true} />
+        <Sun animate={animateSun} />
 
         {/* Hero text container */}
-        <motion.div
-          className="flex flex-col gap-2"
-          initial="initial"
-          animate="animateTypeWritter"
-          variants={fadeInContainerVariants}
-        >
-          <motion.span className="font-bold text-5xl" variants={fadeInVariants}>
+        <div className="flex flex-col gap-2" ref={scope}>
+          <span className="hero-header">
             Hello!
-          </motion.span>
+          </span>
 
-          <motion.span className="font-bold text-5xl" variants={fadeInVariants}>
+          <span className="hero-header">
             My name is Andrew Aquino
-          </motion.span>
+          </span>
 
-          <motion.span className="font-bold text-2xl" variants={fadeInVariants}>
+          <span className="hero-subtext">
             And I'm a Frontend Developer
-          </motion.span>
-        </motion.div>
+          </span>
+        </div>
       </div>
     </section>
   );
