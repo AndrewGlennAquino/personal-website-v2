@@ -6,9 +6,6 @@ import Sun from "../../assets/three/Sun.jsx";
  * Hero component that contains animated sun, greetings, name, and title
  */
 const Hero = () => {
-  // Hold in state when sun animation begins
-  const [animateSun, setAnimateSun] = useState(false);
-
   // Motion hook that control the sequence of animation triggers
   const [scope, animate] = useAnimate();
 
@@ -22,8 +19,6 @@ const Hero = () => {
           { delay: stagger(0.25, { startDelay: 0.5 }), duration: 0.75, ease: "easeOut" },
         ],
       ]);
-
-      setAnimateSun(true);
     };
 
     sequence();
@@ -34,7 +29,7 @@ const Hero = () => {
       {/* Hero container */}
       <div className="container h-screen max-h-180 mp-default mt-0 pt-12 flex flex-col items-center gap-4">
         {/* Animated sun */}
-        <Sun animate={animateSun} />
+        <Sun animate={true} />
 
         {/* Hero text container */}
         <div className="flex flex-col gap-2" ref={scope}>
