@@ -43,4 +43,14 @@ body {
   .button-gradient {
     @apply bg-gradient-to-br from-indigo/55 via-indigo/89 to-indigo/55 text-smoke;
   }
+
+  /* Hero header text */
+  .hero-header {
+    @apply font-bold text-5xl;
+  }
+
+  /* Hero subtext */
+  .hero-subtext {
+    @apply font-bold text-2xl
+  }
 }
