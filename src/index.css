@@ -6,7 +6,8 @@
 }
 
 body {
-  @apply bg-smoke text-eerie font-roboto;
+  background: linear-gradient(#d6c5fc, #f5f5f5);
+  @apply text-eerie font-roboto min-h-screen;
 }
 
 @theme {
@@ -14,6 +15,7 @@ body {
   --color-eerie: #1a1a1a;
   --color-indigo: #6320ee;
   --color-silver: #e0e0e0;
+  --color-periwinkle: #d6c5fc;
 
   --font-roboto: Roboto;
 }
