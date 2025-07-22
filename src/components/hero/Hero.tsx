@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useAnimate, stagger } from "motion/react";
 import Sun from "../../assets/three/Sun.jsx";
 
