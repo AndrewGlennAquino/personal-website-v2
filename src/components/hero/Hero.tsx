@@ -19,7 +19,7 @@ const Hero = () => {
         [
           "div",
           { y: [-15, 0], opacity: [0, 1] },
-          { duration: 0.75, ease: "easeOut" },
+          { delay: stagger(0, {startDelay: 0.5}), duration: 0.75, ease: "easeOut" },
         ],
         [
           "span",
