@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { motion, useAnimate, type Variants } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import Sun from "../../assets/three/Sun.jsx";
 
 /**
