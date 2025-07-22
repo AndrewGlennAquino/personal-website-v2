@@ -27,11 +27,8 @@ const Hero = () => {
 
   return (
     <section aria-label="Hero">
-      {/* Hero background */}
-      <div className="bg-gradient-to-b from-indigo/21 via-indigo/13 to-smoke h-screen absolute inset-0 -z-10" />
-
       {/* Hero container */}
-      <div className="container h-screen max-h-180 mp-default mt-8 flex flex-col items-center gap-4">
+      <div className="container h-screen max-h-180 mp-default mt-0 pt-12 flex flex-col items-center gap-4">
         {/* Animated sun */}
         <Sun animate={true} />
 
