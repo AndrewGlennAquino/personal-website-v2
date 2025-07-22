@@ -16,7 +16,7 @@ const Ray = ({ rotation, animate = true }) => {
 
   /**
    * React Three Fiber hook that exectues every frame,
-   * where the speed is based on the devices' display framerate.
+   * where the speed is based on the devices' display refresh rate.
    * Rotate the ray clockwise about the z-axis if animate is true.
    */
   useFrame(() => {
@@ -108,7 +108,7 @@ const Globe = ({ animate = true }) => {
 
   /**
    * React Three Fiber hook that exectues every frame,
-   * where the speed is based on the devices' display framerate.
+   * where the speed is based on the devices' display refresh rate.
    * Rotate the globe clockwise about the y-axis if animate is true.
    */
   useFrame(() => {
