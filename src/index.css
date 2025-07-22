@@ -27,6 +27,7 @@ body {
     @apply my-2 mx-auto p-4;
   }
 
+  /* Styling for hamburger menu bars */
   .hamburger-menu {
     @apply bg-eerie h-[2px] rounded-full;
   }
