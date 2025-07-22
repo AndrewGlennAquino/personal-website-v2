@@ -21,7 +21,7 @@ const Ray = ({ rotation, animate = true }) => {
    */
   useFrame(() => {
     if (animate) {
-      rayRef.current.rotation.z -= 0.0005;
+      rayRef.current.rotation.z -= 0.0025;
     }
   });
 
@@ -113,7 +113,7 @@ const Globe = ({ animate = true }) => {
    */
   useFrame(() => {
     if (animate) {
-      globeRef.current.rotation.y -= 0.0005;
+      globeRef.current.rotation.y -= 0.0025;
     }
   });
 
