@@ -29,7 +29,7 @@ body {
 
   /* Styling for hamburger menu bars */
   .hamburger-menu {
-    @apply bg-eerie h-[2px] rounded-full;
+    @apply bg-eerie w-6 h-[2px] rounded-full;
   }
 
   /* Drop down menu links */

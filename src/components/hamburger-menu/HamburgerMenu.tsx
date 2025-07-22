@@ -58,19 +58,19 @@ const HamburgerMenu = ({ clicked, handleClick }: HamburgerMenuProps) => {
     >
       {/* Animated lines for the hamburger menu */}
       <motion.div 
-        className="hamburger-menu w-4 " 
+        className="hamburger-menu" 
         initial="initial"
         animate={clicked ? "animateTopBar" : undefined}
         variants={variants}
       />
       <motion.div 
-        className="hamburger-menu w-6 " 
+        className="hamburger-menu" 
         initial="initial"
         animate={clicked ? "animateMiddleBar" : undefined}
         variants={variants}
       />
       <motion.div 
-        className="hamburger-menu w-4" 
+        className="hamburger-menu" 
         initial="initial"
         animate={clicked ? "animateBottomBar" : undefined}
         variants={variants}
