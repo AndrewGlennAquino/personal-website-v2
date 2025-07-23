@@ -72,18 +72,20 @@ const Header = () => {
   };
 
   return (
-    <header className="px-4 fixed top-0 left-0 right-0">
+    <header className="px-4 fixed top-0 left-0 right-0 z-50">
       {/* Header bar container */}
       <div className="container mp-default w-full max-w-160 h-12 rounded-full flex justify-between items-center relative">
         {/* Temporary logo */}
-        <h1 className="font-bold text-xl relative z-10">Temporary Logo</h1>
+        <h1 className="relative z-50">
+          Placeholder
+        </h1>
 
         {/* Hamburger menu for mobile devices */}
         <HamburgerMenu clicked={clicked} handleClick={handleClick} />
 
         {/* Dropdown menu container that animates for mobile devices */}
         <motion.div
-          className="bg-eerie/10 backdrop-blur-md w-full h-full rounded-3xl absolute inset-0"
+          className="bg-smoke/5 backdrop-blur-sm w-full h-full rounded-3xl absolute inset-0"
           initial="initial"
           animate={clicked ? "animateExpand" : undefined}
           variants={dropdownVariants}
