@@ -6,16 +6,14 @@
 }
 
 body {
-  background: linear-gradient(#d6c5fc 25%, #f5f5f5);
-  @apply bg-periwinkle text-eerie font-roboto min-h-screen;
+  @apply bg-eerie text-smoke font-roboto min-h-screen;
 }
 
 @theme {
   --color-smoke: #f5f5f5;
-  --color-eerie: #1a1a1a;
+  --color-eerie: #1f1f1f;
+  --color-jet: #292929;
   --color-indigo: #6320ee;
-  --color-silver: #e0e0e0;
-  --color-periwinkle: #d6c5fc;
 
   --font-roboto: Roboto;
 }
@@ -31,7 +29,7 @@ body {
 
   /* Styling for hamburger menu bars */
   .hamburger-menu {
-    @apply bg-eerie w-6 h-[2px] rounded-full;
+    @apply bg-smoke w-6 h-[2px] rounded-full;
   }
 
   /* Drop down menu links */
@@ -41,7 +39,7 @@ body {
 
   /* Style for gradient button background */
   .button-gradient {
-    @apply bg-gradient-to-br from-indigo/55 via-indigo/89 to-indigo/55 text-smoke;
+    @apply bg-gradient-to-br from-indigo/55 via-indigo/90 to-indigo/55 text-smoke;
   }
 
   /* Hero header text */
@@ -51,6 +49,6 @@ body {
 
   /* Hero subtext */
   .hero-subtext {
-    @apply font-bold text-2xl
+    @apply font-bold text-2xl;
   }
 }
