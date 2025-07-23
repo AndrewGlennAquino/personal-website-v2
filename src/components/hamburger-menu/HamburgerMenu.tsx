@@ -53,7 +53,7 @@ const HamburgerMenu = ({ clicked, handleClick }: HamburgerMenuProps) => {
     // Hamburger menu container
     <button 
       aria-label="Toggle dropdown menu button" 
-      className="md:hidden w-8 h-8 flex flex-col justify-center items-center gap-2 relative z-10"
+      className="md:hidden w-8 h-8 flex flex-col justify-center items-center gap-2 relative z-50"
       onClick={handleClick}
     >
       {/* Animated lines for the hamburger menu */}
