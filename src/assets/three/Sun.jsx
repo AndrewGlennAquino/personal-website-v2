@@ -21,7 +21,7 @@ const Ray = ({ rotation, animate = true }) => {
    */
   useFrame(() => {
     if (animate) {
-      rayRef.current.rotation.z -= 0.0025;
+      rayRef.current.rotation.z -= 0.001;
     }
   });
 
@@ -113,7 +113,7 @@ const Globe = ({ animate = true }) => {
    */
   useFrame(() => {
     if (animate) {
-      globeRef.current.rotation.y -= 0.0025;
+      globeRef.current.rotation.y -= 0.001;
     }
   });
 
@@ -138,7 +138,7 @@ const Sun = ({ animate = false }) => {
   return (
     <Canvas
       camera={{ position: [0, 0, 2.5] }}
-      className="w-full max-w-80 h-full max-h-96 relative -z-10"
+      className="w-full max-w-40 h-full max-h-40 relative -z-10"
     >
       <group>
         {/* Wireframe globe */}
