@@ -136,10 +136,7 @@ const Globe = ({ animate = true }) => {
  */
 const Sun = ({ animate = false }) => {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 2.5] }}
-      className="w-full max-w-40 h-full max-h-40 relative -z-10"
-    >
+    <Canvas camera={{ position: [0, 0, 2.5] }}>
       <group>
         {/* Wireframe globe */}
         <Globe animate={animate} />
