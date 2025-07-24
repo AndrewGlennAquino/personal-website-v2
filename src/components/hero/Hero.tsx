@@ -5,19 +5,35 @@ import { motion, useAnimate, stagger, type Variants } from "motion/react";
  * Hero component that contains greetings, name, and title
  */
 const Hero = () => {
-  // Motion hook that control the sequence of animation triggers
-  const [scope, animate] = useAnimate();
+  // Motion hooks that control the sequence of animation triggers
+  const [backgroundScope, animateBackground] = useAnimate();
+  const [textScope, animateText] = useAnimate();
 
   // Use effect to play animations in sequence once on mount
   useEffect(() => {
     const sequence = async () => {
-      await animate(
+      await animateBackground(
+        backgroundScope.current,
+        { y: ["-100%", 0], opacity: [0, 1] },
+        { delay: 0.5, duration: 1.5, ease: "easeOut" }
+      );
+      await animateText(
         "span",
         { y: [-15, 0], opacity: [0, 1] },
         {
-          delay: stagger(0.25, { startDelay: 1 }),
+          delay: stagger(0.25),
           duration: 0.75,
           ease: "easeOut",
+        }
+      );
+      await animateBackground(
+        backgroundScope.current,
+        { opacity: [1, 0.5] },
+        {
+          duration: 2,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "reverse",
         }
       );
     };
@@ -25,41 +41,18 @@ const Hero = () => {
     sequence();
   }, []);
 
-  // Animation variants for fade in, rotation, and movement of gradient background
-  const gradientBackgroundVariants: Variants = {
-    initial: { opacity: 0 },
-    animateFadeIn: {
-      opacity: 1,
-      transition: {
-        duration: 2,
-      },
-    },
-    animateRotate: {
-      rotate: 360,
-      transition: {
-        duration: 5,
-        ease: "linear",
-        repeat: Infinity,
-      },
-    },
-    animateMovement: {
-      y: ["-100%", 0],
-      transition: {
-        duration: 2,
-        ease: "easeOut",
-      }
-    }
+  // Initial animation state for text
+  const spanVariants: Variants = {
+    initial: { y: -15, opacity: 0 },
   };
 
   return (
     <section aria-label="Hero" className="relative overflow-hidden">
       {/* Animated gradient background */}
       <div className="w-full h-full flex justify-center items-center absolute inset-0 -z-20">
-        <motion.div
+        <div
           className="hero-gradient w-64 h-64 rounded-full"
-          initial="initial"
-          animate={["animateFadeIn", "animateRotate", "animateMovement"]}
-          variants={gradientBackgroundVariants}
+          ref={backgroundScope}
         />
       </div>
 
@@ -69,13 +62,33 @@ const Hero = () => {
       {/* Hero container */}
       <div
         className="container h-screen max-h-180 mp-default mt-0 pt-12 flex flex-col justify-center items-center gap-4"
-        ref={scope}
+        ref={textScope}
       >
         {/* Hero text container */}
         <div className="flex flex-col gap-2">
-          <span className="hero-header">Hello!</span>
-          <span className="hero-header">My name is Andrew Aquino</span>
-          <span className="hero-subtext">And I'm a Frontend Developer</span>
+          <motion.span
+            className="hero-header"
+            initial="initial"
+            variants={spanVariants}
+          >
+            Hello!
+          </motion.span>
+
+          <motion.span
+            className="hero-header"
+            initial="initial"
+            variants={spanVariants}
+          >
+            My name is Andrew Aquino
+          </motion.span>
+
+          <motion.span
+            className="hero-subtext"
+            initial="initial"
+            variants={spanVariants}
+          >
+            And I'm a Frontend Developer
+          </motion.span>
         </div>
       </div>
     </section>
