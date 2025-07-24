@@ -44,8 +44,7 @@ body {
 
   /* Hero background gradient */
   .hero-gradient {
-    background: radial-gradient(
-      circle at top,
+    background: conic-gradient(
       hsl(260, 86%, 53%),
       hsl(305, 100%, 69%),
       hsl(190, 100%, 56%),
