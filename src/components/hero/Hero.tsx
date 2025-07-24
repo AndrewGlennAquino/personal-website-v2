@@ -19,10 +19,9 @@ const Hero = () => {
       );
       await animateText(
         "span",
-        { y: [-10, 0], opacity: [0, 1] },
+        { y: [10, 0], opacity: [0, 1] },
         {
-          delay: stagger(0.15),
-          duration: 0.35,
+          delay: stagger(0.25),
           ease: "easeOut",
         }
       );
@@ -58,7 +57,7 @@ const Hero = () => {
 
       {/* Background blur filter and background texture */}
       <div className="backdrop-blur-3xl w-full h-full absolute inset-0 -z-10" />
-      <div className="bg-[url(./assets/svgs/texture.svg)] opacity-25 w-full h-full absolute inset-0 -z-10" />
+      <div className="bg-[url(./assets/svgs/texture.svg)] opacity-50 w-full h-full absolute inset-0 -z-10" />
 
       {/* Hero container */}
       <div
