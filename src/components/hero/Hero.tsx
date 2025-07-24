@@ -31,25 +31,22 @@ const Hero = () => {
     animateFadeIn: {
       opacity: 1,
       transition: {
-        duration: 5,
+        duration: 2,
       },
     },
     animateRotate: {
       rotate: 360,
       transition: {
-        duration: 4,
+        duration: 5,
         ease: "linear",
         repeat: Infinity,
       },
     },
     animateMovement: {
-      x: [0, 0, "-50%", 0, "50%", "-50%", "50%"],
-      y: ["-100%", "100%", "-100%", "100%", "-100%", "100%", "100%"],
+      y: ["-100%", 0],
       transition: {
-        duration: 30,
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatType: "reverse"
+        duration: 2,
+        ease: "easeOut",
       }
     }
   };
