@@ -42,6 +42,17 @@ body {
     @apply bg-gradient-to-br from-indigo/55 via-indigo/90 to-indigo/55 text-smoke;
   }
 
+  /* Hero background gradient */
+  .hero-gradient {
+    background: radial-gradient(
+      circle at top,
+      hsl(260, 86%, 53%),
+      hsl(305, 100%, 69%),
+      hsl(190, 100%, 56%),
+      hsl(0, 0%, 96%)
+    );
+  }
+
   /* Hero header text */
   .hero-header {
     @apply font-bold text-5xl;
