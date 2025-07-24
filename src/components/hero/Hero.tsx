@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { motion, useAnimate, stagger } from "motion/react";
+import { motion, useAnimate, stagger, type Variants } from "motion/react";
 
 /**
  * Hero component that contains greetings, name, and title
@@ -11,38 +11,63 @@ const Hero = () => {
   // Use effect to play animations in sequence once on mount
   useEffect(() => {
     const sequence = async () => {
-      await animate([
-        [
-          "span",
-          { y: [-15, 0], opacity: [0, 1] },
-          {
-            delay: stagger(0.25, { startDelay: 0.5 }),
-            duration: 0.75,
-            ease: "easeOut",
-          },
-        ],
-      ]);
+      await animate(
+        "span",
+        { y: [-15, 0], opacity: [0, 1] },
+        {
+          delay: stagger(0.25, { startDelay: 1 }),
+          duration: 0.75,
+          ease: "easeOut",
+        }
+      );
     };
 
     sequence();
   }, []);
 
+  // Animation variants for fade in, rotation, and movement of gradient background
+  const gradientBackgroundVariants: Variants = {
+    initial: { opacity: 0 },
+    animateFadeIn: {
+      opacity: 1,
+      transition: {
+        duration: 5,
+      },
+    },
+    animateRotate: {
+      rotate: 360,
+      transition: {
+        duration: 4,
+        ease: "linear",
+        repeat: Infinity,
+      },
+    },
+    animateMovement: {
+      x: [0, 0, "-50%", 0, "50%", "-50%", "50%"],
+      y: ["-100%", "100%", "-100%", "100%", "-100%", "100%", "100%"],
+      transition: {
+        duration: 30,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "reverse"
+      }
+    }
+  };
+
   return (
     <section aria-label="Hero" className="relative overflow-hidden">
       {/* Animated gradient background */}
-      <motion.div
-        className="bg-gradient-to-br from-eerie via-indigo/25 to-eerie w-[200vw] h-[200vh] absolute inset-0 -z-30"
-        animate={{
-          x: "-50%",
-          y: "-50%",
-          transition: {
-            duration: 10,
-            ease: "linear",
-            repeat: Infinity,
-            repeatType: "reverse",
-          },
-        }}
-      />
+      <div className="w-full h-full flex justify-center items-center absolute inset-0 -z-20">
+        <motion.div
+          className="hero-gradient w-64 h-64 rounded-full"
+          initial="initial"
+          animate={["animateFadeIn", "animateRotate", "animateMovement"]}
+          variants={gradientBackgroundVariants}
+        />
+      </div>
+
+      {/* Background blur filter */}
+      <div className="backdrop-blur-3xl w-full h-full absolute inset-0 -z-10" />
 
       {/* Hero container */}
       <div
