@@ -15,13 +15,14 @@ const Hero = () => {
       await animateBackground(
         backgroundScope.current,
         { y: ["-100%", 0], opacity: [0, 1] },
-        { delay: 0.5, duration: 1.5, ease: "easeOut" }
+        { delay: 0.5, duration: 1.5, ease: "easeInOut" }
       );
       await animateText(
         "span",
-        { y: [10, 0], opacity: [0, 1] },
+        { y: 0, opacity: 1 },
         {
-          delay: stagger(0.25),
+          delay: stagger(0.15),
+          duration: 0.4,
           ease: "easeOut",
         }
       );
@@ -42,7 +43,7 @@ const Hero = () => {
 
   // Initial animation state for text
   const spanVariants: Variants = {
-    initial: { y: -15, opacity: 0 },
+    initial: { y: 15, opacity: 0 },
   };
 
   return (
@@ -61,7 +62,7 @@ const Hero = () => {
 
       {/* Hero container */}
       <div
-        className="container h-screen max-h-180 mp-default mt-0 pt-16 flex flex-col justify-center items-center gap-4"
+        className="container border-smoke/5 border-b-2 rounded-4xl h-screen max-h-180 mp-default mt-0 pt-16 flex flex-col justify-center items-center gap-4"
         ref={textScope}
       >
         {/* Hero text container */}
