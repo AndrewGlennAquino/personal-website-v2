@@ -19,6 +19,9 @@ body {
 }
 
 @layer base {
+  h1 {
+    @apply font-bold text-5xl;
+  }
 }
 
 @layer components {
@@ -34,7 +37,7 @@ body {
 
   /* Drop down menu links */
   .dropdown-links {
-    @apply font-medium flex items-center gap-4;
+    @apply flex items-center gap-4;
   }
 
   /* Style for gradient button background */
