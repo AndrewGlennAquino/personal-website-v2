@@ -76,7 +76,7 @@ const Header = () => {
       {/* Header bar container */}
       <div className="container mp-default w-full max-w-160 h-12 rounded-full flex justify-between items-center relative">
         {/* Temporary logo */}
-        <h1 className="relative z-50">
+        <h1 className="text-2xl relative z-50">
           Placeholder
         </h1>
 
@@ -94,7 +94,7 @@ const Header = () => {
           <motion.div
             className={`${
               clicked ? `block` : `hidden`
-            } text-xl h-full mp-default flex flex-col justify-center gap-8`}
+            } text-xl h-full mp-default pt-8 flex flex-col justify-center gap-8`}
             initial="initial"
             animate={clicked ? "animateLink" : undefined}
             variants={{
