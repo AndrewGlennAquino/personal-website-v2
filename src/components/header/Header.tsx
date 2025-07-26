@@ -65,6 +65,10 @@ const Header = () => {
     initial: {
       transition: { type: "spring", bounce: 0.25, visualDuration: 0.25 },
     },
+    animateButtonHover: {
+      x: "-50%",
+      transition: { duration: 1, ease: "easeInOut" },
+    },
     animateHover: {
       scale: 1.15,
       transition: { type: "spring", bounce: 0.25, visualDuration: 0.25 },
@@ -76,9 +80,7 @@ const Header = () => {
       {/* Header bar container */}
       <div className="container mp-default w-full max-w-160 h-12 rounded-full flex justify-between items-center relative">
         {/* Temporary logo */}
-        <h1 className="text-2xl relative z-50">
-          Placeholder
-        </h1>
+        <h1 className="text-2xl relative z-50">Placeholder</h1>
 
         {/* Hamburger menu for mobile devices */}
         <HamburgerMenu clicked={clicked} handleClick={handleClick} />
@@ -146,11 +148,15 @@ const Header = () => {
           {/* Resume tablet link */}
           <motion.a
             href="#"
-            className="button-gradient font-bold px-3 py-1 rounded-full"
-            initial="initial"
-            whileHover="animateHover"
-            variants={tabletLinkVariants}
+            className="font-bold px-3 py-1 rounded-full overflow-hidden relative"
+            whileHover="animateButtonHover"
           >
+            {/* Button background */}
+            <motion.div
+              className="button-gradient w-[250%] h-full absolute inset-0 -z-10"
+              initial={{transition: { duration: 1, ease: "easeInOut" }}}
+              variants={tabletLinkVariants}
+            />
             Resume
           </motion.a>
 
