@@ -12,17 +12,17 @@ const Hero = () => {
   // Use effect to play animations in sequence once on mount
   useEffect(() => {
     const sequence = async () => {
-      await animateBackground(
+      animateBackground(
         backgroundScope.current,
         { y: ["-100%", 0], opacity: [0, 1] },
-        { delay: 0.5, duration: 1.5, ease: "easeInOut" }
+        { delay: 0.5, duration: 1.5, ease: "easeOut" }
       );
       await animateText(
         "span",
         { x: 0, opacity: 1 },
         {
-          delay: stagger(0.5),
-          duration: 1.25,
+          delay: stagger(0.25, {startDelay: 0.5 }),
+          duration: 1,
           ease: "easeOut",
         }
       );
@@ -62,7 +62,7 @@ const Hero = () => {
 
       {/* Hero container */}
       <div
-        className="container container-border border-t-0 h-screen max-h-180 mp-default mt-0 pt-16 flex flex-col justify-center items-center gap-4"
+        className="container h-screen max-h-180 mp-default mt-0 pt-16 flex flex-col justify-center items-center gap-4"
         ref={textScope}
       >
         {/* Hero text container */}
