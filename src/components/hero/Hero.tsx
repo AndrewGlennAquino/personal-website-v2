@@ -19,10 +19,10 @@ const Hero = () => {
       );
       await animateText(
         "span",
-        { y: 0, opacity: 1 },
+        { x: 0, opacity: 1 },
         {
-          delay: stagger(0.15),
-          duration: 0.4,
+          delay: stagger(0.75),
+          duration: 1.5,
           ease: "easeOut",
         }
       );
@@ -43,7 +43,7 @@ const Hero = () => {
 
   // Initial animation state for text
   const spanVariants: Variants = {
-    initial: { y: 15, opacity: 0 },
+    initial: { x: -10, opacity: 0 },
   };
 
   return (
