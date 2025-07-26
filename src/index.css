@@ -65,9 +65,4 @@ body {
   .hero-subtext {
     @apply font-bold text-2xl;
   }
-
-  /* Border style for containers */
-  .container-border {
-    @apply border-smoke/5 border-t-2 border-b-2 rounded-4xl;
-  }
 }
