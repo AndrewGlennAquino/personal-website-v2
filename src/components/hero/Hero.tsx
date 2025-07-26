@@ -21,8 +21,8 @@ const Hero = () => {
         "span",
         { x: 0, opacity: 1 },
         {
-          delay: stagger(0.75),
-          duration: 1.5,
+          delay: stagger(0.5),
+          duration: 1.25,
           ease: "easeOut",
         }
       );
