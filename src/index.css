@@ -14,6 +14,7 @@ body {
   --color-eerie: #1f1f1f;
   --color-jet: #292929;
   --color-indigo: #6320ee;
+  --color-tangerine: #ff9500;
 
   --font-roboto: Roboto;
 }
@@ -42,7 +43,7 @@ body {
 
   /* Style for gradient button background */
   .button-gradient {
-    @apply bg-gradient-to-br from-indigo/55 via-indigo/90 to-indigo/55 text-smoke;
+    @apply bg-gradient-to-r from-indigo to-tangerine text-smoke;
   }
 
   /* Hero background gradient */
