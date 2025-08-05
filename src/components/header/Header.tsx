@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { motion, type Variants } from "motion/react";
+import {
+  motion,
+  useScroll,
+  useMotionValueEvent,
+  type Variants,
+} from "motion/react";
 import HamburgerMenu from "../hamburger-menu/HamburgerMenu";
 import resumeIcon from "../../assets/icons/file-text-icon.svg";
 import gitHubIcon from "../../assets/icons/github-icon.svg";
@@ -13,28 +18,37 @@ const Header = () => {
   // Hold state of whether menu is toggled: true if toggled, false otherwise
   const [clicked, setClicked] = useState(false);
 
+  // Hold state for current y scroll bar position
+  const [scrolled, setScrolled] = useState(false);
+
+  // Keep track of y scroll bar movement; 0 is the top of the browser height
+  const { scrollY } = useScroll();
+
   // Function that sets clicked state to its inverse
   const handleClick = () => {
     setClicked(!clicked);
   };
 
+  /**
+   * Check the latest position of the y scroll bar on every change.
+   * If the position is greater than the hero height, set scrolled state to true.
+   * Otherwise, set scrolled state to false.
+   */
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 375) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  });
+
   // Animation variants that expand the dropdown menu on hamburger menu click
   const dropdownVariants: Variants = {
     initial: {
       height: 48,
-      transition: {
-        type: "spring",
-        bounce: 0.25,
-        visualDuration: 0.25,
-      },
     },
     animateExpand: {
       height: 256,
-      transition: {
-        type: "spring",
-        bounce: 0.25,
-        visualDuration: 0.25,
-      },
     },
   };
 
@@ -43,44 +57,43 @@ const Header = () => {
     initial: {
       y: -25,
       opacity: 0,
-      transition: {
-        type: "spring",
-        bounce: 0.25,
-        visualDuration: 0.25,
-      },
     },
     animateLink: {
       y: 0,
       opacity: 1,
-      transition: {
-        type: "spring",
-        bounce: 0.25,
-        visualDuration: 0.25,
-      },
     },
   };
 
   // Animation variants for tablet device links
   const tabletLinkVariants: Variants = {
-    initial: {
-      transition: { type: "spring", bounce: 0.25, visualDuration: 0.25 },
-    },
     animateButtonHover: {
       x: "-50%",
-      transition: { duration: 1, ease: "easeInOut" },
     },
     animateHover: {
       scale: 1.15,
-      transition: { type: "spring", bounce: 0.25, visualDuration: 0.25 },
     },
   };
 
   return (
-    <header className="px-4 fixed top-0 left-0 right-0 z-50">
+    <header className="px-4 fixed top-2 left-0 right-0 z-50">
       {/* Header bar container */}
       <div className="container mp-default w-full max-w-160 h-12 rounded-full flex justify-between items-center relative">
-        {/* Temporary logo */}
-        <h1 className="text-2xl relative z-50">Placeholder</h1>
+        {/* Animated name header on scroll past hero */}
+        <motion.h1
+          className="text-2xl relative z-50"
+          initial={{ opacity: 0, x: -10 }}
+          animate={
+            scrolled
+              ? {
+                  opacity: 1,
+                  x: 0,
+                }
+              : undefined
+          }
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          Andrew Aquino
+        </motion.h1>
 
         {/* Hamburger menu for mobile devices */}
         <HamburgerMenu clicked={clicked} handleClick={handleClick} />
@@ -90,6 +103,7 @@ const Header = () => {
           className="bg-smoke/5 backdrop-blur-sm w-full h-full rounded-3xl absolute inset-0"
           initial="initial"
           animate={clicked ? "animateExpand" : undefined}
+          transition={{ type: "spring", bounce: 0.25, visualDuration: 0.25 }}
           variants={dropdownVariants}
         >
           {/* Links container that staggers mobile device link animations */}
@@ -154,7 +168,7 @@ const Header = () => {
             {/* Button background */}
             <motion.div
               className="button-gradient w-[250%] h-full absolute inset-0 -z-10"
-              initial={{transition: { duration: 1, ease: "easeInOut" }}}
+              transition={{ duration: 1, ease: "easeInOut" }}
               variants={tabletLinkVariants}
             />
             Resume
@@ -166,6 +180,7 @@ const Header = () => {
             target="_blank"
             initial="initial"
             whileHover="animateHover"
+            transition={{ type: "spring", bounce: 0.25, visualDuration: 0.25 }}
             variants={tabletLinkVariants}
           >
             <img src={gitHubIcon} alt="GitHub icon" className="w-6 h-auto" />
@@ -177,6 +192,7 @@ const Header = () => {
             target="_blank"
             initial="initial"
             whileHover="animateHover"
+            transition={{ type: "spring", bounce: 0.25, visualDuration: 0.25 }}
             variants={tabletLinkVariants}
           >
             <img
