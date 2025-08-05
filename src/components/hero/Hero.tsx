@@ -88,7 +88,7 @@ const Hero = () => {
             initial="initial"
             variants={spanVariants}
           >
-            And I'm a Frontend Developer
+            And I'm a Full Stack Developer
           </motion.span>
         </div>
       </div>
