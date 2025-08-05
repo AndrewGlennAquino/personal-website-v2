@@ -44,52 +44,31 @@ const Header = () => {
 
   // Animation variants that expand the dropdown menu on hamburger menu click
   const dropdownVariants: Variants = {
-    initial: {
-      height: 48,
-    },
-    animateExpand: {
-      height: 256,
-    },
+    initial: { height: 48 },
+    animateExpand: { height: 256 },
   };
 
   // Animation variants that animate the dropdown menu links
   const mobileLinkVariants: Variants = {
-    initial: {
-      y: -25,
-      opacity: 0,
-    },
-    animateLink: {
-      y: 0,
-      opacity: 1,
-    },
+    initial: { y: -25, opacity: 0 },
+    animateLink: { y: 0, opacity: 1 },
   };
 
   // Animation variants for tablet device links
   const tabletLinkVariants: Variants = {
-    animateButtonHover: {
-      x: "-50%",
-    },
-    animateHover: {
-      scale: 1.15,
-    },
+    animateButtonHover: { x: "-50%" },
+    animateHover: { scale: 1.15 },
   };
 
   return (
     <header className="px-4 fixed top-2 left-0 right-0 z-50">
       {/* Header bar container */}
-      <div className="container mp-default w-full max-w-160 h-12 rounded-full flex justify-between items-center relative">
+      <div className="w-full h-12 mp-default rounded-full flex justify-between items-center relative">
         {/* Animated name header on scroll past hero */}
         <motion.h1
           className="text-2xl relative z-50"
           initial={{ opacity: 0, x: -10 }}
-          animate={
-            scrolled
-              ? {
-                  opacity: 1,
-                  x: 0,
-                }
-              : undefined
-          }
+          animate={scrolled ? { opacity: 1, x: 0 } : undefined}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           Andrew Aquino
@@ -100,13 +79,13 @@ const Header = () => {
 
         {/* Dropdown menu container that animates for mobile devices */}
         <motion.div
-          className="bg-smoke/5 backdrop-blur-sm w-full h-full rounded-3xl absolute inset-0"
+          className="transparent-blur w-full h-full rounded-3xl absolute inset-0"
           initial="initial"
           animate={clicked ? "animateExpand" : undefined}
           transition={{ type: "spring", bounce: 0.25, visualDuration: 0.25 }}
           variants={dropdownVariants}
         >
-          {/* Links container that staggers mobile device link animations */}
+          {/* Mobile links container */}
           <motion.div
             className={`${
               clicked ? `block` : `hidden`
@@ -114,6 +93,7 @@ const Header = () => {
             initial="initial"
             animate={clicked ? "animateLink" : undefined}
             variants={{
+              // Variant for parent container to delay and stagger children animateLink
               animateLink: {
                 transition: { delayChildren: 0.1, staggerChildren: 0.05 },
               },
@@ -165,7 +145,7 @@ const Header = () => {
             className="font-bold px-3 py-1 rounded-full overflow-hidden relative"
             whileHover="animateButtonHover"
           >
-            {/* Button background */}
+            {/* Button animated background */}
             <motion.div
               className="button-gradient w-[250%] h-full absolute inset-0 -z-10"
               transition={{ duration: 1, ease: "easeInOut" }}
