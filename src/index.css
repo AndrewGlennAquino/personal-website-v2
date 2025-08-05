@@ -12,7 +12,6 @@ body {
 @theme {
   --color-smoke: #f5f5f5;
   --color-eerie: #1f1f1f;
-  --color-jet: #292929;
   --color-indigo: #6320ee;
   --color-tangerine: #ff9500;
 
@@ -21,7 +20,7 @@ body {
 
 @layer base {
   h1 {
-    @apply font-bold text-5xl;
+    @apply font-bold text-3xl;
   }
 }
 
@@ -48,12 +47,7 @@ body {
 
   /* Hero background gradient */
   .hero-gradient {
-    background: conic-gradient(
-      hsl(260, 86%, 53%),
-      hsl(305, 100%, 69%),
-      hsl(190, 100%, 56%),
-      hsl(35, 100%, 50%)
-    );
+    @apply bg-conic/increasing from-indigo to-tangerine;
   }
 
   /* Hero header text */
