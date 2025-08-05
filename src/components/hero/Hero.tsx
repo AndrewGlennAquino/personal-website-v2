@@ -62,7 +62,7 @@ const Hero = () => {
 
       {/* Hero container */}
       <div
-        className="h-screen max-h-192 mp-default pt-16 flex flex-col justify-center gap-4"
+        className="h-screen max-h-192 mp-default pt-16 flex flex-col justify-center items-center gap-4"
         ref={textScope}
       >
         {/* Hero text container */}
