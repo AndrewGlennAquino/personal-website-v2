@@ -21,7 +21,7 @@ const Hero = () => {
         "span",
         { x: 0, opacity: 1 },
         {
-          delay: stagger(0.25, {startDelay: 0.5 }),
+          delay: stagger(0.25, { startDelay: 0.5 }),
           duration: 1,
           ease: "easeOut",
         }
@@ -49,20 +49,20 @@ const Hero = () => {
   return (
     <section aria-label="Hero" className="relative overflow-hidden">
       {/* Animated gradient background */}
-      <div className="w-full h-full flex justify-center items-center absolute inset-0 -z-20">
+      <div className="bg-gradient-default">
         <div
-          className="hero-gradient w-64 h-64 rounded-full"
+          className="bg-conic/increasing from-indigo to-tangerine w-64 h-64 rounded-full"
           ref={backgroundScope}
         />
       </div>
 
       {/* Background blur filter and background texture */}
-      <div className="backdrop-blur-3xl w-full h-full absolute inset-0 -z-10" />
-      <div className="bg-[url(./assets/svgs/texture.svg)] opacity-50 w-full h-full absolute inset-0 -z-10" />
+      <div className="bg-blur" />
+      <div className="bg-texture" />
 
       {/* Hero container */}
       <div
-        className="container h-screen max-h-192 mp-default mt-0 pt-16 flex flex-col justify-center items-center gap-4"
+        className="h-screen max-h-192 mp-default pt-16 flex flex-col justify-center gap-4"
         ref={textScope}
       >
         {/* Hero text container */}
