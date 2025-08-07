@@ -26,7 +26,7 @@ const About = () => {
 
         {/* Text card */}
         <div className="card transparent-blur card-shadow col-span-full">
-          <p>
+          <p className="text-balance">
             Hello and nice to meet you! My name is Andrew Aquino and I'm a
             software engineer for Revature and freelance full stack developer
             who enjoys creating accessible, aesthetically pleasing websites. I
@@ -59,8 +59,8 @@ const About = () => {
 
             <ul className="pl-4 flex flex-col gap-2">
               <li className={`list-["🥊"] pl-2`}>
-                I began practicing boxing at 16 years old and my favorite
-                boxer is Manny Pacquiao.
+                I began practicing boxing at 16 years old and my favorite boxer
+                is Manny Pacquiao.
               </li>
 
               <li className={`list-["🍳"] pl-2`}>
