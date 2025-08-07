@@ -47,7 +47,7 @@ const Hero = () => {
   };
 
   return (
-    <section aria-label="Hero" className="relative overflow-hidden">
+    <section aria-label="Hero" className="relative">
       {/* Animated gradient background */}
       <div className="bg-gradient-default">
         <div
@@ -62,7 +62,7 @@ const Hero = () => {
 
       {/* Hero container */}
       <div
-        className="h-screen max-h-192 mp-default pt-16 flex flex-col justify-center items-center gap-4"
+        className="h-screen max-h-256 mp-default pt-16 flex flex-col justify-center items-center gap-4"
         ref={textScope}
       >
         {/* Hero text container */}
