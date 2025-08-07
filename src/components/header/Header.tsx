@@ -35,7 +35,7 @@ const Header = () => {
    * Otherwise, set scrolled state to false.
    */
   useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 375) {
+    if (latest > 612) {
       setScrolled(true);
     } else {
       setScrolled(false);
