@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import headshot from "../../assets/images/headshot.jpeg";
 
 const About = () => {
@@ -5,7 +6,13 @@ const About = () => {
     <section aria-label="About" className="relative">
       {/* Gradient background */}
       <div className="bg-gradient-default">
-        <div className="bg-radial-[at_100%_100%] from-indigo from-0% to-eerie to-50% w-full h-full" />
+        <motion.div
+          className="bg-radial-[at_100%_50%] from-indigo from-0% to-eerie to-50% w-128 h-128"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ amount: 0.5, once: true }}
+          transition={{ duration: 2, ease: "easeOut" }}
+        />
       </div>
 
       {/* Background blur filter and background texture */}
@@ -13,26 +20,30 @@ const About = () => {
       <div className="bg-texture" />
 
       {/* About container */}
-      <div className="mp-default">
+      <div className="mp-default flex flex-col gap-4">
         {/* About header */}
         <h1>About Me</h1>
 
-        {/* Card container */}
-        <div className="grid grid-rows-3 grid-cols-1 sm:grid-rows-2 sm:grid-cols-2 gap-4">
-          {/* Text card */}
-          <div className="card transparent-blur card-shadow col-span-full">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repellendus illo hic quaerat nihil. Iure aliquam doloremque
-              tenetur quo, blanditiis culpa rerum vitae beatae ut deserunt
-              laborum quas voluptatem eveniet aperiam. Lorem ipsum dolor sit
-              amet consectetur adipisicing elit. Suscipit eligendi nemo pariatur
-              nisi perspiciatis corrupti debitis ab quibusdam placeat quasi
-              fugit, blanditiis ex rerum ipsa, excepturi iusto tenetur
-              accusantium nihil.
-            </p>
-          </div>
+        {/* Text card */}
+        <div className="card transparent-blur card-shadow col-span-full">
+          <p>
+            Hello and nice to meet you! My name is Andrew Aquino and I'm a
+            software engineer for Revature and freelance full stack developer
+            who enjoys creating accessible, aesthetically pleasing websites. I
+            specialize in TypeScript, React, Tailwind CSS, and I focus on clean
+            design, responsiveness, and accessibility. As a software engineer
+            for Revature, I train in client-specific tech stacks to easily
+            integrate into development teams and production environments and
+            instantly contribute robust, clean code. As a freelance full stack
+            developer, I collaborate with local businesses and entrepreneurs to
+            deliver modern, responsive, and SEO optimized websites for free with
+            little to no overhead. I'm always on the lookout for freelance or
+            full-time opportunities!
+          </p>
+        </div>
 
+        {/* Card container */}
+        <div className="flex flex-col gap-4 sm:grid sm:grid-rows-1 sm:grid-cols-2">
           {/* Image card */}
           <div className="card-shadow flex justify-center items-center">
             <img
@@ -43,13 +54,26 @@ const About = () => {
           </div>
 
           {/* Fun facts */}
-          <div className="card transparent-blur card-shadow">
-            <h2>Fun facts:</h2>
-            
-            <ul>
-              <li>Fun fact 1</li>
-              <li>Fun fact 2</li>
-              <li>Fun fact 3</li>
+          <div className="card transparent-blur card-shadow flex flex-col gap-2">
+            <h2 className="text-lg font-bold">A little more about me!</h2>
+
+            <ul className="pl-4 flex flex-col gap-2">
+              <li className={`list-["🥊"] pl-2`}>
+                I began practicing boxing at 16 years old and my favorite
+                boxer is Manny Pacquiao.
+              </li>
+
+              <li className={`list-["🍳"] pl-2`}>
+                I love cooking all kinds of cultural foods. My top 3 food
+                cultures as of right now, and always subject to change:
+                Filipino, Jamaican, Indian.
+              </li>
+
+              <li className={`list-["🏀"] pl-2`}>
+                My favorite sports team of all time and for the rest of time is
+                the Chicago Bulls (They'll make it to the finals again in my
+                life time 🙏).
+              </li>
             </ul>
           </div>
         </div>
