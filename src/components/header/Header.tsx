@@ -63,7 +63,7 @@ const Header = () => {
   return (
     <header className="px-4 fixed top-2 left-0 right-0 z-50">
       {/* Header bar container */}
-      <div className="w-full h-12 mp-default rounded-full flex justify-between items-center relative">
+      <div className="w-full h-12 mp-default p-4 rounded-full flex justify-between items-center relative">
         {/* Animated name header on scroll past hero */}
         <motion.h1
           className="text-2xl relative z-50"
@@ -89,7 +89,7 @@ const Header = () => {
           <motion.div
             className={`${
               clicked ? `block` : `hidden`
-            } text-xl h-full mp-default pt-8 flex flex-col justify-center gap-8`}
+            } text-xl h-full p-4 flex flex-col justify-evenly relative top-4`}
             initial="initial"
             animate={clicked ? "animateLink" : undefined}
             variants={{
