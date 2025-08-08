@@ -9,7 +9,7 @@ const Quote = () => {
   const [scope, animate] = useAnimate();
 
   // Check if the component in view
-  const isInView = useInView(scope, { amount: "all", once: true });
+  const isInView = useInView(scope, { amount: 0.75, once: true });
 
   // Quote as a string and split into an array
   const quote =
