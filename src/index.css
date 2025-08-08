@@ -6,7 +6,7 @@
 }
 
 body {
-  @apply bg-eerie text-smoke font-roboto min-h-screen;
+  @apply bg-night text-smoke font-roboto min-h-screen;
 }
 
 @theme {
@@ -83,7 +83,7 @@ body {
 
   /* Shadow for cards */
   .card-shadow {
-    box-shadow: 0 0 4px var(--color-night);
+    box-shadow: 0 0 8px var(--color-eerie);
     @apply w-full h-full rounded-4xl;
   }
 }
