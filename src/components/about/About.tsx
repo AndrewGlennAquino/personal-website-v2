@@ -1,17 +1,45 @@
-import { motion } from "motion/react";
+import { useEffect } from "react";
+import { motion, useAnimate, useInView } from "motion/react";
 import headshot from "../../assets/images/headshot.jpeg";
 
+/**
+ * About component that contains basic information, picture, and fun facts
+ */
 const About = () => {
+  // Controllers for animation sequence
+  const [scope, animate] = useAnimate();
+
+  // Trigger rerender when half of the component is in viewport
+  const isInView = useInView(scope, { amount: 0.25 });
+
+  // Trigger animation sequence after isInView rerender
+  useEffect(() => {
+    const sequence = async () => {
+      await animate(
+        "#about-container",
+        { opacity: 1 },
+        { duration: 2, ease: "easeOut" }
+      );
+      await animate(
+        "#about-bg-gradient",
+        { opacity: 1 },
+        { duration: 2, ease: "easeOut" }
+      );
+    };
+
+    if (isInView) {
+      sequence();
+    }
+  }, [isInView]);
+
   return (
-    <section aria-label="About" className="relative">
+    <section aria-label="About" className="relative" ref={scope}>
       {/* Gradient background */}
       <div className="bg-gradient-default">
         <motion.div
+          id="about-bg-gradient"
           className="bg-radial-[at_100%_50%] from-indigo from-0% to-eerie to-50% w-128 h-128"
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ amount: 0.5, once: true }}
-          transition={{ duration: 2, ease: "easeOut" }}
         />
       </div>
 
@@ -20,7 +48,11 @@ const About = () => {
       <div className="bg-texture" />
 
       {/* About container */}
-      <div className="mp-default flex flex-col gap-4">
+      <motion.div
+        id="about-container"
+        className="mp-default flex flex-col gap-4"
+        initial={{ opacity: 0 }}
+      >
         {/* About header */}
         <h1>About Me</h1>
 
@@ -77,7 +109,7 @@ const About = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
