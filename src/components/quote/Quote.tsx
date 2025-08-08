@@ -13,7 +13,7 @@ const Quote = () => {
 
   // Quote as a string and split into an array
   const quote =
-    '"Icarus laughed as he fell, for he knew to fall means to once have soared"';
+    '"Icarus laughed as he fell, for he knew to fall means to have once soared"';
   const quoteArray = quote.split(" ");
 
   // Animate sequence if isInView triggers a rerender
