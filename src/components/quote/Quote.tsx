@@ -9,7 +9,7 @@ const Quote = () => {
   const [scope, animate] = useAnimate();
 
   // Check if the component in view
-  const isInView = useInView(scope, { amount: 0.75, once: true });
+  const isInView = useInView(scope, { amount: 0.5, once: true });
 
   // Quote as a string and split into an array
   const quote =
@@ -19,11 +19,11 @@ const Quote = () => {
   // Animate sequence if isInView triggers a rerender
   useEffect(() => {
     const sequence = async () => {
-      await animate("div", { opacity: 1 }, { duration: 1.5, ease: "easeOut" });
+      await animate("div", { opacity: 1 }, { duration: 1, ease: "easeOut" });
       await animate(
         "span",
         { opacity: 1 },
-        { delay: stagger(0.25), duration: 1.25, ease: "easeIn" }
+        { delay: stagger(0.15), duration: 1.35, ease: "easeIn" }
       );
     };
 
@@ -39,10 +39,13 @@ const Quote = () => {
       <div className="bg-texture" />
 
       {/* Quote container */}
-      <div className="flex justify-center items-center mp-default" ref={scope}>
+      <div
+        className="flex justify-center items-center mp-default pt-0"
+        ref={scope}
+      >
         {/* Quote border */}
         <motion.div
-          className="border-indigo border-y-4 relative -top-16"
+          className="border-indigo border-y-2"
           initial={{ opacity: 0 }}
         >
           {/* p container for <span> elements for quote strings */}
