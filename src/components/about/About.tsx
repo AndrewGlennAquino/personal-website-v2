@@ -81,7 +81,7 @@ const About = () => {
             <img
               src={headshot}
               alt="Headshot image"
-              className="object-cover w-full h-full rounded-4xl"
+              className="object-cover w-full h-full"
               loading="lazy"
             />
           </div>
