@@ -62,7 +62,7 @@ const Hero = () => {
 
       {/* Hero container */}
       <div
-        className="h-screen mp-default flex flex-col justify-center items-center gap-4"
+        className="h-screen max-h-256 mp-default py-16 flex flex-col justify-center items-center gap-4"
         ref={textScope}
       >
         {/* Hero text container */}
