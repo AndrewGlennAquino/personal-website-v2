@@ -22,8 +22,8 @@ const HamburgerMenu = ({ clicked, handleClick }: HamburgerMenuProps) => {
       }
     },
     animateTopBar: {
-      y: 10,
-      rotate: 45,
+      y: 5,
+      rotate: 225,
       transition: {
         type: "spring",
         bounce: 0.25,
@@ -39,8 +39,8 @@ const HamburgerMenu = ({ clicked, handleClick }: HamburgerMenuProps) => {
         visualDuration: 0.25,
       }
     }, animateBottomBar: {
-      y: -10,
-      rotate: -45,
+      y: -5,
+      rotate: -225,
       transition: {
         type: "spring",
         bounce: 0.25,
@@ -61,12 +61,6 @@ const HamburgerMenu = ({ clicked, handleClick }: HamburgerMenuProps) => {
         className="hamburger-menu" 
         initial="initial"
         animate={clicked ? "animateTopBar" : undefined}
-        variants={variants}
-      />
-      <motion.div 
-        className="hamburger-menu" 
-        initial="initial"
-        animate={clicked ? "animateMiddleBar" : undefined}
         variants={variants}
       />
       <motion.div 
