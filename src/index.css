@@ -33,7 +33,7 @@ body {
 
   /* Styling for hamburger menu bars */
   .hamburger-menu {
-    @apply bg-smoke w-6 h-[2px] rounded-full;
+    @apply bg-smoke w-6 h-[2px] rounded-md;
   }
 
   /* Transparent blurred background */
@@ -78,12 +78,12 @@ body {
 
   /* Card styling */
   .card {
-    @apply w-full h-full p-4 rounded-4xl;
+    @apply w-full h-full p-4 rounded-md;
   }
 
   /* Shadow for cards */
   .card-shadow {
     box-shadow: 0 0 8px var(--color-eerie);
-    @apply w-full h-full rounded-4xl;
+    @apply w-full h-full rounded-md;
   }
 }
