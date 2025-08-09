@@ -28,7 +28,7 @@ body {
 @layer components {
   /* Default margin, paddding, and max width for containers */
   .mp-default {
-    @apply mx-auto p-4 py-16 max-w-192;
+    @apply mx-auto p-4 py-24 max-w-192;
   }
 
   /* Styling for hamburger menu bars */
