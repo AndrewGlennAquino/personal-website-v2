@@ -40,7 +40,7 @@ const Quote = () => {
 
       {/* Quote container */}
       <div
-        className="flex justify-center items-center mp-default pt-0"
+        className="flex justify-center items-center mp-default"
         ref={scope}
       >
         {/* Quote border */}
