@@ -10,7 +10,7 @@ const About = () => {
   const [scope, animate] = useAnimate();
 
   // Trigger rerender when half of the component is in viewport
-  const isInView = useInView(scope, { amount: 0.25 });
+  const isInView = useInView(scope, { amount: 0.35 });
 
   // Trigger animation sequence after isInView rerender
   useEffect(() => {
