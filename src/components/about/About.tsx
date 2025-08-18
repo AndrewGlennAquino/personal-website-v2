@@ -54,7 +54,7 @@ const About = () => {
         initial={{ opacity: 0 }}
       >
         {/* About header */}
-        <h1>About Me</h1>
+        <h1>A Little About Me</h1>
 
         {/* Text card */}
         <div className="card transparent-blur card-shadow col-span-full">
@@ -88,7 +88,7 @@ const About = () => {
 
           {/* Fun facts */}
           <div className="card transparent-blur card-shadow flex flex-col gap-2">
-            <h2 className="text-lg font-bold">A little more about me!</h2>
+            <h2 className="text-lg font-bold">A Little More About Me!</h2>
 
             <ul className="pl-4 flex flex-col gap-2">
               <li className={`list-["🥊"] pl-2`}>
@@ -97,15 +97,16 @@ const About = () => {
               </li>
 
               <li className={`list-["🍳"] pl-2`}>
-                I love cooking all kinds of cultural foods. My top 3 food
-                cultures as of right now, and always subject to change:
-                Filipino, Jamaican, Indian.
+                I love cooking all kinds of cultural foods. Top 3 food cultures
+                I can straight up devour: Filipino, Jamaican, and Indian.
+                Honorable mention -- Middle Eastern cuisine.
               </li>
 
-              <li className={`list-["🏀"] pl-2`}>
-                My favorite sports team of all time and for the rest of time is
-                the Chicago Bulls (They'll make it to the finals again in my
-                life time 🙏).
+              <li className={`list-["⚔"] pl-2`}>
+                I have over 500 hours of experience as a commander in simulated,
+                real-time medieval battles where I use my expertise to fend of
+                attackers from key strongholds and launch counter offensive
+                measures against enemies (Total War | Mount and Blade).
               </li>
             </ul>
           </div>

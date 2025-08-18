@@ -28,7 +28,7 @@ body {
 @layer components {
   /* Default margin, paddding, and max width for containers */
   .mp-default {
-    @apply mx-auto p-4 py-24 max-w-192;
+    @apply mx-auto p-4 py-24 max-w-256;
   }
 
   /* Styling for hamburger menu bars */
@@ -85,5 +85,15 @@ body {
   .card-shadow {
     box-shadow: 0 0 8px var(--color-eerie);
     @apply w-full h-full rounded-md;
+  }
+
+  /* Style for project card headers */
+  .project-card-header {
+    @apply text-xl font-semibold;
+  }
+
+  /* Style for project technology logos */
+  .project-card-logo {
+    @apply w-8 h-auto;
   }
 }

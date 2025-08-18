@@ -50,7 +50,7 @@ const Quote = () => {
         >
           {/* p container for <span> elements for quote strings */}
           <p
-            className="text-smoke/50 text-3xl font-serif py-4 md:px-8 flex flex-wrap justify-center items-center"
+            className="text-smoke/50 text-3xl font-serif py-4 md:px-8 lg:px-48 flex flex-wrap justify-center items-center"
             aria-label={quote}
           >
             {/* Hide each span and use <p> aria-label as text */}
