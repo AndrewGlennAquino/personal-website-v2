@@ -14,26 +14,16 @@ const Hero = () => {
     const sequence = async () => {
       animateBackground(
         backgroundScope.current,
-        { y: ["-100%", 0], opacity: [0, 1] },
-        { delay: 0.5, duration: 1.5, ease: "easeOut" }
+        { opacity: [0, 1] },
+        { delay: 0.25, duration: 1, ease: "easeOut" }
       );
       await animateText(
         "span",
         { x: 0, opacity: 1 },
         {
-          delay: stagger(0.25, { startDelay: 0.5 }),
-          duration: 1,
+          delay: stagger(0.25, { startDelay: 0.25 }),
+          duration: 0.5,
           ease: "easeOut",
-        }
-      );
-      await animateBackground(
-        backgroundScope.current,
-        { opacity: [1, 0.5] },
-        {
-          duration: 5,
-          ease: "easeInOut",
-          repeat: Infinity,
-          repeatType: "reverse",
         }
       );
     };

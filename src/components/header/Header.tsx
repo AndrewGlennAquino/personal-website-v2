@@ -148,7 +148,7 @@ const Header = () => {
             {/* Button animated background */}
             <motion.div
               className="button-gradient w-[250%] h-full absolute inset-0 -z-10"
-              transition={{ duration: 1, ease: "easeInOut" }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
               variants={tabletLinkVariants}
             />
             Resume
