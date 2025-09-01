@@ -72,7 +72,7 @@ const ProjectCard = ({ src, logos, children }: ProjectCardProps) => {
 /**
  * Projects container that holds interactive project cards
  */
-const Projects = () => {
+export const Projects = () => {
   // Controllers for animation sequence
   const [scope, animate] = useAnimate();
 
@@ -175,5 +175,3 @@ const Projects = () => {
     </section>
   );
 };
-
-export default Projects;

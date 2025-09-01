@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { motion, useAnimate, useInView, stagger } from "motion/react";
-import Sun from "../../assets/three/Sun";
+import { Sun } from "../../assets/three/Sun";
 
 /**
  * Quote container component that contains deep quote

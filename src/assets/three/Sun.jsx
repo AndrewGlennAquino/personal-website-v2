@@ -119,7 +119,7 @@ const Globe = () => {
  * Sun component for hero with animation controls. Animation paused as default.
  * @param props animate
  */
-const Sun = ({ animate = false }) => {
+export const Sun = ({ animate = false }) => {
   return (
     <Canvas camera={{ position: [0, 0, 2.5] }}>
       <group>
@@ -142,5 +142,3 @@ const Sun = ({ animate = false }) => {
     </Canvas>
   );
 };
-
-export default Sun;
