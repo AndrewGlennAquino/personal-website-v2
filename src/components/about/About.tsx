@@ -18,12 +18,12 @@ const About = () => {
       await animate(
         "#about-container",
         { opacity: 1 },
-        { duration: 2, ease: "easeOut" }
+        { duration: 1, ease: "easeOut" }
       );
       await animate(
         "#about-bg-gradient",
         { opacity: 1 },
-        { duration: 2, ease: "easeOut" }
+        { duration: 1, ease: "easeOut" }
       );
     };
 

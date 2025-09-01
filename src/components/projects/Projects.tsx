@@ -85,12 +85,12 @@ export const Projects = () => {
       await animate(
         "#projects-container",
         { opacity: 1 },
-        { duration: 2, ease: "easeOut" }
+        { duration: 1, ease: "easeOut" }
       );
       await animate(
         "#projects-bg-gradient",
         { opacity: 1 },
-        { duration: 2, ease: "easeOut" }
+        { duration: 1, ease: "easeOut" }
       );
     };
 
