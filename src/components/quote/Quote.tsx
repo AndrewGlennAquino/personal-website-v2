@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { motion, useAnimate, useInView, stagger } from "motion/react";
+import Sun from "../../assets/three/Sun";
 
 /**
  * Quote container component that contains deep quote
@@ -40,9 +41,14 @@ const Quote = () => {
 
       {/* Quote container */}
       <div
-        className="flex justify-center items-center mp-default"
+        className="flex flex-col justify-center items-center mp-default"
         ref={scope}
       >
+        {/* Sun container */}
+        <div className="w-full h-64 lg:h-80">
+          <Sun animate={true} />
+        </div>
+
         {/* Quote border */}
         <motion.div
           className="border-indigo border-y-2"

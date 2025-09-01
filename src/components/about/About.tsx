@@ -58,19 +58,21 @@ const About = () => {
 
         {/* Text card */}
         <div className="card transparent-blur card-shadow col-span-full">
-          <p className="text-balance">
-            Hello and nice to meet you! My name is Andrew Aquino and I'm a
-            software engineer for Revature and freelance full stack developer
-            who enjoys creating accessible, aesthetically pleasing websites. I
-            specialize in TypeScript, React, Tailwind CSS, and I focus on clean
-            design, responsiveness, and accessibility. As a software engineer
-            for Revature, I train in client-specific tech stacks to easily
-            integrate into development teams and production environments and
-            instantly contribute robust, clean code. As a freelance full stack
-            developer, I collaborate with local businesses and entrepreneurs to
-            deliver modern, responsive, and SEO optimized websites for free with
-            little to no overhead. I'm always on the lookout for freelance or
-            full-time opportunities!
+          <p>
+            Hello and nice to meet you! My name is Andrew Aquino and I'm a full
+            stack developer who enjoys creating accessible, aesthetically
+            pleasing websites. I specialize in TypeScript, React, Tailwind CSS,
+            Node, Express, and PostgreSQL, and I focus on clean design,
+            responsiveness, accessibility, and robust architecture.
+            <br />
+            <br />
+            As the sole Founding Full Stack Engineer at ChemTek, I lead design,
+            architecture, and infrastructure decisions, leveraging free and
+            cost-effective technologies that allow for scalability as the
+            company grows. As a freelance full stack developer, I collaborate
+            with local businesses and entrepreneurs to deliver modern,
+            responsive, and SEO optimized websites for free as community
+            service, helping small businesses thrive in the digital space.
           </p>
         </div>
 
@@ -81,7 +83,7 @@ const About = () => {
             <img
               src={headshot}
               alt="Headshot image"
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full rounded-md"
               loading="lazy"
             />
           </div>
@@ -106,7 +108,7 @@ const About = () => {
                 I have over 500 hours of experience as a commander in simulated,
                 real-time medieval battles where I use my expertise to fend of
                 attackers from key strongholds and launch counter offensive
-                measures against enemies (Total War | Mount and Blade).
+                measures against enemies (Total War || Mount and Blade).
               </li>
             </ul>
           </div>

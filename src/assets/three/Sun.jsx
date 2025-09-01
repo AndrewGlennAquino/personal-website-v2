@@ -12,7 +12,7 @@ const Ray = ({ rotation, animate = true }) => {
   // Mesh material constants
   const metalness = 0;
   const roughness = 1;
-  const color = "#6320ee";
+  const color = "#ff9500";
 
   /**
    * React Three Fiber hook that exectues every frame,
@@ -94,31 +94,16 @@ const Ray = ({ rotation, animate = true }) => {
 };
 
 /**
- * Animated Globe component that takes animate as props
- * @param props animate
+ * Wireframe globe component for Sun
  */
-const Globe = ({ animate = true }) => {
-  // Store the current y offset for globe
-  const globeRef = useRef();
-
+const Globe = () => {
   // Mesh material constants
   const metalness = 0;
   const roughness = 1;
-  const color = "#6320ee";
-
-  /**
-   * React Three Fiber hook that exectues every frame,
-   * where the speed is based on the devices' display refresh rate.
-   * Rotate the globe clockwise about the y-axis if animate is true.
-   */
-  useFrame(() => {
-    if (animate) {
-      globeRef.current.rotation.y -= 0.001;
-    }
-  });
+  const color = "#ff9500";
 
   return (
-    <mesh scale={[1.15, 1.15, 1.15]} ref={globeRef}>
+    <mesh scale={[1.15, 1.15, 1.15]}>
       <sphereGeometry args={[0.5, 16, 16]} />
       <meshStandardMaterial
         color={color}
@@ -152,8 +137,7 @@ const Sun = ({ animate = false }) => {
         <Ray rotation={[0, 0, 5.495]} animate={animate} />
       </group>
 
-      {/* Directional lighting */}
-      <directionalLight color="#f5f5f5" intensity={5} position={[0, 0, -1]} />
+      {/* Lighting */}
       <ambientLight color="#f5f5f5" intensity={5} />
     </Canvas>
   );
