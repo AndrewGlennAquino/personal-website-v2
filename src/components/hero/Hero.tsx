@@ -46,9 +46,8 @@ const Hero = () => {
         />
       </div>
 
-      {/* Background blur filter and background texture */}
+      {/* Background blur filter */}
       <div className="bg-blur" />
-      <div className="bg-texture" />
 
       {/* Hero container */}
       <div

@@ -6,15 +6,16 @@
 }
 
 body {
-  @apply bg-night text-smoke font-roboto;
+  @apply bg-eerie text-smoke font-roboto;
 }
 
 @theme {
   --color-smoke: #f5f5f5;
   --color-night: #141414;
-  --color-eerie: #1f1f1f;
+  --color-eerie: #101010;
   --color-indigo: #6320ee;
   --color-tangerine: #ff9500;
+  --color-magenta: #F90093;
 
   --font-roboto: Roboto;
 }
@@ -38,7 +39,7 @@ body {
 
   /* Transparent blurred background */
   .transparent-blur {
-    @apply bg-smoke/5 backdrop-blur-sm;
+    @apply bg-night/50 backdrop-blur-sm;
   }
 
   /* Drop down menu links */
@@ -59,11 +60,6 @@ body {
   /* Background blur filter */
   .bg-blur {
     @apply backdrop-blur-3xl w-full h-full absolute inset-0 -z-10;
-  }
-
-  /* Background texture */
-  .bg-texture {
-    @apply bg-[url(./assets/svgs/texture.svg)] opacity-50 w-full h-full absolute inset-0 -z-10;
   }
 
   /* Hero header text */

@@ -1,4 +1,4 @@
-import { motion, useAnimate, useInView } from "motion/react";
+import { motion, useAnimate, useInView, stagger } from "motion/react";
 import { useEffect } from "react";
 import chemtekScreenshot from "../../assets/images/chemtek-screenshot.png";
 import fithausScreenshot from "../../assets/images/fithaus-screenshot.png";
@@ -11,6 +11,7 @@ import tailwindLogo from "../../assets/images/tailwind-logo.png";
 import nodeLogo from "../../assets/images/node-logo.png";
 import expressLogo from "../../assets/images/express-logo.png";
 import postgresqlLogo from "../../assets/images/postgresql-logo.png";
+import externalLinkIcon from "../../assets/icons/external-link-icon.svg";
 
 // Each logo has an image source and alt strings
 type Logo = {
@@ -18,23 +19,29 @@ type Logo = {
   alt: string;
 };
 
+// Project card prop types
 interface ProjectCardProps {
+  href: string;
   src: string;
   logos: Logo[];
   children: string;
 }
 
 /**
- * ProjectCard component that takes an image source,
- * array of logos, and children text.
+ * ProjectCard component that takes an href,
+ * image source, array of logos, and children text.
  *
- * @param props src, logos, children
+ * @param props href, src, logos, children
  */
-const ProjectCard = ({ src, logos, children }: ProjectCardProps) => {
+const ProjectCard = ({ href, src, logos, children }: ProjectCardProps) => {
   return (
-    <div
+    <motion.a
+      href={href}
+      target="_blank"
       aria-label={`${children}-card`}
       className="transparent-blur card-shadow"
+      initial={{ x: -10, opacity: 0 }}
+      whileHover={{ scale: 1.025 }}
     >
       {/* Card image */}
       <img
@@ -49,7 +56,10 @@ const ProjectCard = ({ src, logos, children }: ProjectCardProps) => {
         {/* Title and logo container */}
         <div className="flex flex-col justify-center">
           {/* Card Title */}
-          <h2 className="project-card-header">{children}</h2>
+          <div className="flex items-center gap-2">
+            <h2 className="project-card-header">{children}</h2>
+            <img src={externalLinkIcon} className="w-4 h-auto" />
+          </div>
 
           <div className="flex gap-1">
             {/* For each logo, create an image */}
@@ -65,7 +75,7 @@ const ProjectCard = ({ src, logos, children }: ProjectCardProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.a>
   );
 };
 
@@ -83,14 +93,26 @@ export const Projects = () => {
   useEffect(() => {
     const sequence = async () => {
       await animate(
-        "#projects-container",
-        { opacity: 1 },
-        { duration: 2, ease: "easeOut" }
+        "h1",
+        { x: 0, opacity: 1 },
+        {
+          duration: 0.5,
+          ease: "easeOut",
+        }
+      );
+      await animate(
+        "#project-card-container > *",
+        { x: 0, opacity: 1 },
+        {
+          delay: stagger(0.25),
+          duration: 0.5,
+          ease: "easeOut",
+        }
       );
       await animate(
         "#projects-bg-gradient",
         { opacity: 1 },
-        { duration: 2, ease: "easeOut" }
+        { duration: 1, ease: "easeOut" }
       );
     };
 
@@ -105,27 +127,26 @@ export const Projects = () => {
       <div className="bg-gradient-default">
         <motion.div
           id="projects-bg-gradient"
-          className="bg-radial-[at_0%_50%] from-tangerine/75 to-night w-128 h-128"
+          className="bg-radial-[at_0%_50%] from-magenta/75 to-transparent w-128 h-128"
           initial={{ opacity: 0 }}
         />
       </div>
 
-      {/* Background blur filter and background texture */}
+      {/* Background blur filter */}
       <div className="bg-blur" />
-      <div className="bg-texture" />
 
       {/* Projects container */}
-      <motion.div
-        id="projects-container"
-        className="mp-default flex flex-col gap-4"
-        initial={{ opacity: 0 }}
-      >
+      <div id="projects-container" className="mp-default flex flex-col gap-4">
         {/* Projects header */}
-        <h1>I Made These!</h1>
+        <motion.h1 initial={{ x: -10, opacity: 0 }}>I Made These!</motion.h1>
 
         {/* Project card container */}
-        <div className="flex flex-col gap-4 sm:grid grid-cols-2 sm:gap-2">
+        <div
+          id="project-card-container"
+          className="flex flex-col gap-4 sm:grid grid-cols-2 sm:gap-4"
+        >
           <ProjectCard
+            href="https://chemtek.services"
             src={chemtekScreenshot}
             logos={[
               { src: typeScriptLogo, alt: "TypeScript" },
@@ -140,6 +161,7 @@ export const Projects = () => {
           </ProjectCard>
 
           <ProjectCard
+            href="https://andrewglennaquino.github.io/brew-n-bubble-website/"
             src={brewnbubbleScreenshot}
             logos={[
               { src: javaScriptLogo, alt: "JavaScript" },
@@ -151,6 +173,7 @@ export const Projects = () => {
           </ProjectCard>
 
           <ProjectCard
+            href="https://andrewglennaquino.github.io/fit-haus-website/"
             src={fithausScreenshot}
             logos={[
               { src: javaScriptLogo, alt: "JavaScript" },
@@ -162,6 +185,7 @@ export const Projects = () => {
           </ProjectCard>
 
           <ProjectCard
+            href="https://andrewglennaquino.github.io/personal-website/"
             src={personalwebsitev1Screenshot}
             logos={[
               { src: javaScriptLogo, alt: "JavaScript" },
@@ -171,7 +195,7 @@ export const Projects = () => {
             Personal Website v1
           </ProjectCard>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

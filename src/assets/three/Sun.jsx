@@ -104,7 +104,7 @@ const Globe = () => {
 
   return (
     <mesh scale={[1.15, 1.15, 1.15]}>
-      <sphereGeometry args={[0.5, 16, 16]} />
+      <sphereGeometry args={[0.5, 4, 4]} />
       <meshStandardMaterial
         color={color}
         metalness={metalness}

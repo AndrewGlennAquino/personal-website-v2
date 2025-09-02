@@ -6,7 +6,6 @@ import {
   type Variants,
 } from "motion/react";
 import HamburgerMenu from "../hamburger-menu/HamburgerMenu";
-import resumeIcon from "../../assets/icons/file-text-icon.svg";
 import gitHubIcon from "../../assets/icons/github-icon.svg";
 import linkedInIcon from "../../assets/icons/linkedin-icon.svg";
 
@@ -45,7 +44,7 @@ const Header = () => {
   // Animation variants that expand the dropdown menu on hamburger menu click
   const dropdownVariants: Variants = {
     initial: { height: 48 },
-    animateExpand: { height: 256 },
+    animateExpand: { height: 144 },
   };
 
   // Animation variants that animate the dropdown menu links
@@ -99,19 +98,9 @@ const Header = () => {
               },
             }}
           >
-            {/* Resume mobile link */}
-            <motion.a
-              href="#"
-              className="dropdown-links"
-              variants={mobileLinkVariants}
-            >
-              <img src={resumeIcon} alt="Resume icon" className="w-8 h-auto" />
-              Resume
-            </motion.a>
-
             {/* GitHub mobile link */}
             <motion.a
-              href="#"
+              href="https://github.com/AndrewGlennAquino"
               target="_blank"
               className="dropdown-links"
               variants={mobileLinkVariants}
@@ -122,7 +111,7 @@ const Header = () => {
 
             {/* LinkedIn mobile link */}
             <motion.a
-              href="#"
+              href="https://www.linkedin.com/in/andrew-glenn-aquino/"
               target="_blank"
               className="dropdown-links"
               variants={mobileLinkVariants}
@@ -139,24 +128,9 @@ const Header = () => {
 
         {/* Header for tablet devices */}
         <div className="hidden md:flex items-center gap-4 relative z-10">
-          {/* Resume tablet link */}
-          <motion.a
-            href="#"
-            className="font-bold px-3 py-1 rounded-full overflow-hidden relative"
-            whileHover="animateButtonHover"
-          >
-            {/* Button animated background */}
-            <motion.div
-              className="button-gradient w-[250%] h-full absolute inset-0 -z-10"
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              variants={tabletLinkVariants}
-            />
-            Resume
-          </motion.a>
-
           {/* Github tablet link */}
           <motion.a
-            href="#"
+            href="https://github.com/AndrewGlennAquino"
             target="_blank"
             initial="initial"
             whileHover="animateHover"
@@ -168,7 +142,7 @@ const Header = () => {
 
           {/* LinkedIn tablet link */}
           <motion.a
-            href="#"
+            href="https://www.linkedin.com/in/andrew-glenn-aquino/"
             target="_blank"
             initial="initial"
             whileHover="animateHover"

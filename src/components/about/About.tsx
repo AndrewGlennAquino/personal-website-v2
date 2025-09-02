@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { motion, useAnimate, useInView } from "motion/react";
+import { motion, stagger, useAnimate, useInView } from "motion/react";
 import headshot from "../../assets/images/headshot.jpeg";
 
 /**
@@ -16,14 +16,18 @@ const About = () => {
   useEffect(() => {
     const sequence = async () => {
       await animate(
-        "#about-container",
-        { opacity: 1 },
-        { delay: 0.15, duration: 2, ease: "easeOut" }
+        "#about-container > *",
+        { x: 0, opacity: 1 },
+        {
+          delay: stagger(0.25),
+          duration: 0.5,
+          ease: "easeOut",
+        }
       );
       await animate(
         "#about-bg-gradient",
         { opacity: 1 },
-        { delay: 0.15, duration: 2, ease: "easeOut" }
+        { duration: 1, ease: "easeOut" }
       );
     };
 
@@ -38,26 +42,23 @@ const About = () => {
       <div className="bg-gradient-default">
         <motion.div
           id="about-bg-gradient"
-          className="bg-radial-[at_100%_50%] from-indigo from-0% to-night to-50% w-128 h-128"
+          className="bg-radial-[at_100%_50%] from-indigo from-0% to-transparent to-50% w-128 h-128"
           initial={{ opacity: 0 }}
         />
       </div>
 
-      {/* Background blur filter and background texture */}
+      {/* Background blur filter */}
       <div className="bg-blur" />
-      <div className="bg-texture" />
 
       {/* About container */}
-      <motion.div
-        id="about-container"
-        className="mp-default flex flex-col gap-4"
-        initial={{ opacity: 0 }}
-      >
+      <div id="about-container" className="mp-default flex flex-col gap-4">
         {/* About header */}
-        <h1>A Little About Me</h1>
+        <motion.h1 initial={{ x: -10, opacity: 0 }}>
+          A Little About Me
+        </motion.h1>
 
         {/* Text card */}
-        <div className="card transparent-blur card-shadow col-span-full">
+        <motion.div className="col-span-full" initial={{ x: -10, opacity: 0 }}>
           <p>
             Hello and nice to meet you! My name is Andrew Aquino and I'm a full
             stack developer who enjoys creating accessible, aesthetically
@@ -74,10 +75,13 @@ const About = () => {
             responsive, and SEO optimized websites for free as community
             service, helping small businesses thrive in the digital space.
           </p>
-        </div>
+        </motion.div>
 
         {/* Card container */}
-        <div className="flex flex-col gap-4 sm:grid sm:grid-rows-1 sm:grid-cols-2">
+        <motion.div
+          className="flex flex-col gap-4 sm:grid sm:grid-rows-1 sm:grid-cols-2"
+          initial={{ x: -10, opacity: 0 }}
+        >
           {/* Image card */}
           <div className="card-shadow flex justify-center items-center">
             <img
@@ -105,15 +109,16 @@ const About = () => {
               </li>
 
               <li className={`list-["⚔"] pl-2`}>
-                I have over 500 hours of experience as a commander in simulated,
-                real-time medieval battles where I use my expertise to fend of
-                attackers from key strongholds and launch counter offensive
-                measures against enemies (Total War || Mount and Blade).
+                I have over 1000 hours of experience as a commander in
+                simulated, real-time medieval battles where I use my expertise
+                to fend of attackers from key strongholds and launch counter
+                offensive measures against enemies (Total War || Mount and
+                Blade).
               </li>
             </ul>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };

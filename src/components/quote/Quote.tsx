@@ -5,7 +5,7 @@ import { Sun } from "../../assets/three/Sun";
 /**
  * Quote container component that contains deep quote
  */
-const Quote = () => {
+export const Quote = () => {
   // Control the animation sequence for the border and quote
   const [scope, animate] = useAnimate();
 
@@ -20,11 +20,20 @@ const Quote = () => {
   // Animate sequence if isInView triggers a rerender
   useEffect(() => {
     const sequence = async () => {
-      await animate("div", { opacity: 1 }, { duration: 1, ease: "easeOut" });
+      await animate(
+        "#quote-border",
+        { opacity: 1 },
+        { duration: 1, ease: "easeOut" }
+      );
       await animate(
         "span",
         { opacity: 1 },
         { delay: stagger(0.15), duration: 1.35, ease: "easeIn" }
+      );
+      await animate(
+        "#quote-bg-gradient",
+        { opacity: 1 },
+        { duration: 1.5, ease: "easeOut" }
       );
     };
 
@@ -34,16 +43,25 @@ const Quote = () => {
   }, [isInView]);
 
   return (
-    <section aria-label="Quote" className="relative">
-      {/* Background blur filter and background texture */}
+    <section
+      aria-label="Quote"
+      className="relative overflow-hidden"
+      ref={scope}
+    >
+      {/* Gradient background */}
+      <div className="bg-gradient-default items-start top-32 lg:top-40">
+        <motion.div
+          id="quote-bg-gradient"
+          className="bg-radial from-tangerine to-transparent w-48 h-48"
+          initial={{ opacity: 0 }}
+        />
+      </div>
+
+      {/* Background blur filter */}
       <div className="bg-blur" />
-      <div className="bg-texture" />
 
       {/* Quote container */}
-      <div
-        className="flex flex-col justify-center items-center mp-default"
-        ref={scope}
-      >
+      <div className="flex flex-col justify-center items-center mp-default">
         {/* Sun container */}
         <div className="w-full h-64 lg:h-80">
           <Sun animate={true} />
@@ -51,6 +69,7 @@ const Quote = () => {
 
         {/* Quote border */}
         <motion.div
+          id="quote-border"
           className="border-indigo border-y-2"
           initial={{ opacity: 0 }}
         >
@@ -76,5 +95,3 @@ const Quote = () => {
     </section>
   );
 };
-
-export default Quote;
