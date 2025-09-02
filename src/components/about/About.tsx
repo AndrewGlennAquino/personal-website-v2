@@ -10,7 +10,7 @@ const About = () => {
   const [scope, animate] = useAnimate();
 
   // Trigger rerender when half of the component is in viewport
-  const isInView = useInView(scope, { amount: 0.35 });
+  const isInView = useInView(scope, { amount: 0.40 });
 
   // Trigger animation sequence after isInView rerender
   useEffect(() => {
@@ -42,7 +42,7 @@ const About = () => {
       <div className="bg-gradient-default">
         <motion.div
           id="about-bg-gradient"
-          className="bg-radial-[at_100%_50%] from-indigo from-0% to-transparent to-50% w-128 h-128"
+          className="bg-radial-[at_100%_50%] from-indigo from-0% to-transparent to-75% w-128 h-128"
           initial={{ opacity: 0 }}
         />
       </div>

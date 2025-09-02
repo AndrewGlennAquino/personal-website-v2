@@ -87,15 +87,16 @@ export const Projects = () => {
   const [scope, animate] = useAnimate();
 
   // Trigger rerender when half of the component is in viewport
-  const isInView = useInView(scope, { amount: 0.35 });
+  const isInView = useInView(scope, { amount: 0.40 });
 
   // Trigger animation sequence after isInView rerender
   useEffect(() => {
     const sequence = async () => {
       await animate(
-        "h1",
+        "#projects-container h1",
         { x: 0, opacity: 1 },
         {
+          delay: stagger(0.25),
           duration: 0.5,
           ease: "easeOut",
         }
@@ -127,7 +128,7 @@ export const Projects = () => {
       <div className="bg-gradient-default">
         <motion.div
           id="projects-bg-gradient"
-          className="bg-radial-[at_0%_50%] from-magenta/75 to-transparent w-128 h-128"
+          className="bg-radial-[at_0%_50%] from-magenta/75 from-0% to-transparent to-75% w-128 h-128"
           initial={{ opacity: 0 }}
         />
       </div>
