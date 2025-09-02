@@ -39,7 +39,7 @@ body {
 
   /* Transparent blurred background */
   .transparent-blur {
-    @apply bg-night/50 backdrop-blur-sm;
+    @apply bg-smoke/3 backdrop-blur-sm;
   }
 
   /* Drop down menu links */
