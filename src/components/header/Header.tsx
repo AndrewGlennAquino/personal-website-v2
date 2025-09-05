@@ -5,28 +5,18 @@ import {
   useMotionValueEvent,
   type Variants,
 } from "motion/react";
-import HamburgerMenu from "../hamburger-menu/HamburgerMenu";
 import gitHubIcon from "../../assets/icons/github-icon.svg";
 import linkedInIcon from "../../assets/icons/linkedin-icon.svg";
 
 /**
- * Header component that contains hamburger menu for mobile devices
- * and links for tablets and larger
+ * Header component that contains animated name and links
  */
 const Header = () => {
-  // Hold state of whether menu is toggled: true if toggled, false otherwise
-  const [clicked, setClicked] = useState(false);
-
   // Hold state for current y scroll bar position
   const [scrolled, setScrolled] = useState(false);
 
   // Keep track of y scroll bar movement; 0 is the top of the browser height
   const { scrollY } = useScroll();
-
-  // Function that sets clicked state to its inverse
-  const handleClick = () => {
-    setClicked(!clicked);
-  };
 
   /**
    * Check the latest position of the y scroll bar on every change.
@@ -41,20 +31,8 @@ const Header = () => {
     }
   });
 
-  // Animation variants that expand the dropdown menu on hamburger menu click
-  const dropdownVariants: Variants = {
-    initial: { height: 48 },
-    animateExpand: { height: 144 },
-  };
-
-  // Animation variants that animate the dropdown menu links
-  const mobileLinkVariants: Variants = {
-    initial: { y: -25, opacity: 0 },
-    animateLink: { y: 0, opacity: 1 },
-  };
-
-  // Animation variants for tablet device links
-  const tabletLinkVariants: Variants = {
+  // Animation variants for links
+  const linkVariants: Variants = {
     animateButtonHover: { x: "-50%" },
     animateHover: { scale: 1.15 },
   };
@@ -63,6 +41,9 @@ const Header = () => {
     <header className="px-4 fixed top-2 left-0 right-0 z-50">
       {/* Header bar container */}
       <div className="w-full h-12 mp-default p-4 rounded-full flex justify-between items-center relative">
+        {/* Header bar background */}
+        <div className="transparent-blur w-full h-full rounded-3xl absolute inset-0" />
+
         {/* Animated name header on scroll past hero */}
         <motion.h1
           className="text-2xl relative z-50"
@@ -73,81 +54,28 @@ const Header = () => {
           Andrew Aquino
         </motion.h1>
 
-        {/* Hamburger menu for mobile devices */}
-        <HamburgerMenu clicked={clicked} handleClick={handleClick} />
-
-        {/* Dropdown menu container that animates for mobile devices */}
-        <motion.div
-          className="transparent-blur w-full h-full rounded-3xl absolute inset-0"
-          initial="initial"
-          animate={clicked ? "animateExpand" : undefined}
-          transition={{ type: "spring", bounce: 0.25, visualDuration: 0.25 }}
-          variants={dropdownVariants}
-        >
-          {/* Mobile links container */}
-          <motion.div
-            className={`${
-              clicked ? `block` : `hidden`
-            } text-xl h-full p-4 flex flex-col justify-evenly relative top-4`}
-            initial="initial"
-            animate={clicked ? "animateLink" : undefined}
-            variants={{
-              // Variant for parent container to delay and stagger children animateLink
-              animateLink: {
-                transition: { delayChildren: 0.1, staggerChildren: 0.05 },
-              },
-            }}
-          >
-            {/* GitHub mobile link */}
-            <motion.a
-              href="https://github.com/AndrewGlennAquino"
-              target="_blank"
-              className="dropdown-links"
-              variants={mobileLinkVariants}
-            >
-              <img src={gitHubIcon} alt="GitHub icon" className="w-8 h-auto" />
-              GitHub
-            </motion.a>
-
-            {/* LinkedIn mobile link */}
-            <motion.a
-              href="https://www.linkedin.com/in/andrew-glenn-aquino/"
-              target="_blank"
-              className="dropdown-links"
-              variants={mobileLinkVariants}
-            >
-              <img
-                src={linkedInIcon}
-                alt="LinkedIn icon"
-                className="w-8 h-auto"
-              />
-              LinkedIn
-            </motion.a>
-          </motion.div>
-        </motion.div>
-
-        {/* Header for tablet devices */}
-        <div className="hidden md:flex items-center gap-4 relative z-10">
-          {/* Github tablet link */}
+        {/* Header links */}
+        <div className="flex items-center gap-4 relative z-10">
+          {/* Github link */}
           <motion.a
             href="https://github.com/AndrewGlennAquino"
             target="_blank"
             initial="initial"
             whileHover="animateHover"
             transition={{ type: "spring", bounce: 0.25, visualDuration: 0.25 }}
-            variants={tabletLinkVariants}
+            variants={linkVariants}
           >
             <img src={gitHubIcon} alt="GitHub icon" className="w-6 h-auto" />
           </motion.a>
 
-          {/* LinkedIn tablet link */}
+          {/* LinkedIn link */}
           <motion.a
             href="https://www.linkedin.com/in/andrew-glenn-aquino/"
             target="_blank"
             initial="initial"
             whileHover="animateHover"
             transition={{ type: "spring", bounce: 0.25, visualDuration: 0.25 }}
-            variants={tabletLinkVariants}
+            variants={linkVariants}
           >
             <img
               src={linkedInIcon}
